@@ -1,9 +1,12 @@
+// GETS SELECTED CRYPTOCURRENCY FROM SCROLL BOX.
 function getCryptoSelection() {
     var available_options = document.getElementById('select-options');
     var selected_option = available_options.options[available_options.selectedIndex].value;
     return selected_option;
 }
 
+
+// FORMATS THE PROVIDED STRING TO ONLY CONTAIN TWO DECIMAL POINTS.
 function format_value_string(string, contains_decimal) {
     var start;
     if (contains_decimal) {
@@ -26,6 +29,8 @@ function format_value_string(string, contains_decimal) {
 }
 
 
+// FUNCTION THAT IS EXECUTED WHEN THE 'SUBMIT' BUTTON IS CLICKED IN THE 
+// CRYPTOCURRENCY TRANSACTION FORM IN THE 'MOCK TRANSACTION' PAGE.
 document.getElementById('get-receipt').addEventListener('click', function(event) {
     var api_key = 'b231d31b8c9e7ba918ecbdd7929bf1ad';
     var req = new XMLHttpRequest();
@@ -63,6 +68,8 @@ document.getElementById('get-receipt').addEventListener('click', function(event)
 });
 
 
+// GETS THE CRYPTOCURRENCY DATA WHEN A CRYPTOCURRENCY IS SELECTED IN THE
+// 'PRICES & DATA" PAGE.
 function get_data() {
     var api_key = 'b231d31b8c9e7ba918ecbdd7929bf1ad';
     var req = new XMLHttpRequest();

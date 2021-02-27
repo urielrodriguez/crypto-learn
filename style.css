@@ -103,6 +103,12 @@ nav {
     opacity: .8;
 }
 
+.learn-options {
+    list-style-type: none;
+    display: flex;
+    margin-left: -33px;
+}
+
 .learn-button {
     border-bottom: 1px solid rgb(165, 156, 156);
     border-top: none;
