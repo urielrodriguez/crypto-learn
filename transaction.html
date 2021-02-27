@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CryptoNews - Mock Transaction</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+
+        <!-- NAV BAR -->
+        <nav class="navbar navbar-expand-lg">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html"><strong>CryptoLearn</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="learn.html">Learn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prices.html">Prices & Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="transaction.html">Mock Transaction</a>
+                </li>
+            </ul>
+        </nav>
+
+        <section class="intro-section">
+            <!-- TITLE AND PAGE DESCRIPTION -->
+            <div class="intro-text">
+                <h1 id="title">Simulate Buying & Selling Cryptocurrencies</h1>
+                <p id="description">
+                    This page will give you the opportunity to simulate <br> 
+                    buying and selling cryptocurrencies. Simply fill out <br>
+                    the form by selecting the cryptocurrency of your choice <br>
+                    and the amount you want to buy or sell.
+                </p>
+            </div>
+
+            <!-- PAGE HEADER IMAGE -->
+            <div class="page-image">
+                <img src="./img/transact.jpg" alt="Blockchain">
+            </div>
+        </section>
+
+        <section class="citation">
+            <span id="photo-citation">
+                <span>Photo by <a href="https://unsplash.com/@bermixstudio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Bermix Studio</a> on <a href="https://unsplash.com/s/photos/bitcoin?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+            </span>
+          </section>
+
+        <section class="transaction" id="transaction">
+            <form action="" method="GET" class="transaction-form">
+                <div class="form-title">
+                    <h4>Cryptocurrency Transaction Form</h4>
+                </div>
+
+                <div class="form-content">
+
+                    <div class="form-crypto-select">
+                        <h6>Select a Cryptocurrency</h6>
+                        <div>
+                            <select id="select-options" class="form-select scroll-box" size="7">
+                                <option value="BTC">Bitcoin (BTC)</option>
+                                <option value="ETH">Ethereum (ETH)</option>
+                                <option value="LTC">Litecoin (LTC)</option>
+                                <option value="DOGE">Dogecoin (DOGE)</option>
+                                <option value="ATOM">Cosmos (ATOM)</option>
+                                <option value="GRT">The Graph (GRT)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="amount-dollars-container">
+                        <label for="amount-dollars">Amount in $</label>
+                        <input type="text" name="amount-dollars" id="dollars-amount-input">
+                    </div>
+
+                    <div class="submit-form-container">
+                        <button type="submit" class="submit-form" id="get-receipt">Submit</button>
+                    </div>
+
+                </div>
+            </form>
+        </section>
+
+        <div class="receipt-title">
+            <h4 id="receipt-title"></h4>
+        </div>
+
+        <section class="receipt">
+            <div class="data">
+                <h4 id="crypto-bought-title"></h4>
+                <p id="crypto-bought"></p>
+            </div>
+            <div class="data">
+                <h4 id="currency-price-title"></h4>
+                <p id="currency-price"></p>
+            </div>
+            <div class="data">
+                <h4 id="dollar-amount-title"></h4>
+                <p id="dollar-amount"></p>
+            </div>
+            <div class="data">
+                <h4 id="crypto-amount-title"></h4>
+                <p id="crypto-amount"></p>
+            </div>
+        </section>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    </body>
+</html>
