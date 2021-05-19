@@ -91,9 +91,11 @@ function buy_transaction_preview() {
             var data = response[0];
             console.log(data);
 
-            // var dollar_amount = document.getElementById('dollars-amount-input').value;
-            // var currency_price = data['price'];
-            // var currency_quantity = dollar_amount / currency_price;
+            var currency_price = data['price'];
+            var currency_quantity = dollar_amount / currency_price;
+
+            document.getElementById('coin-price').innerHTML = '<strong>' + currency + '</strong> ' + currency_price; 
+            
 
             
             // document.getElementById('receipt-title').textContent = 'Transaction Details';
