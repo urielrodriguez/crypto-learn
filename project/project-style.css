@@ -1,0 +1,67 @@
+h1, #add-data-point-btn {
+    margin-left: 115px;
+}
+
+.container-labels-data-points, h1 {
+    margin-top: 35px;
+}
+
+.label-data-point {
+    display: flex;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+#add-data-point-btn, #delete-data-point-btn, #create-graph-btn {
+    margin-top: 15px;
+    width: 250px;
+}
+
+#unlock-account-btn {
+    width: 192px;margin-top: 10px;
+}
+
+.canvas-div {
+    width: 70%; 
+    margin-left: 15%; 
+    margin-right: 15%; margin-top: 35px; 
+    margin-bottom: 35px;
+}
+
+#graph-label {
+    background-color: rgb(182, 185, 184);
+}
+
+#account-assets-card {
+    text-align: center;
+}
+
+#recent-transactions-card {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.account-details {
+    display: flex;
+}
+
+.account-assets-data {
+    display: flex;
+    justify-content: center;
+}
+
+.account-assets-data section {
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+#buy-btn, #sell-btn {
+    width: 100px;
+}
+
+.about-crypto {
+    text-align: center;
+}
+
