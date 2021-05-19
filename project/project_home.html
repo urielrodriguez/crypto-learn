@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../service/style.css" type="text/css">
+    <title>Cryptocurrency Exchange</title>
+</head>
+<body>
+    <h1>Cryptocurrency Exchange</h1>
+
+    <div class="keys-container" id="keys-container" style="width: 10%; margin-left: 6%; margin-right: 84%; margin-top: 20px;">
+        <div class="keys" id="keys">
+            <input class="form-control mr-sm-2" id="public-key" type="text" placeholder="Public Key">
+        </div>
+
+        <div class="keys" id="keys">
+            <input class="form-control mr-sm-2" id="private-key" type="text" placeholder="Private Key">
+        </div>
+
+        <button type="button" class="btn btn-dark" id="unlock-account-btn">Unlock Account</button>
+    </div>
+
+    <div class="account-details" style="width: 80%; margin-left: 6%; margin-right: 14%; margin-top: 20px;">
+
+        <div class="card" id="account-assets-card" style="width: 60rem;">
+            <div class="card-body">
+                <h5 class="card-title">Account Assets</h5>
+
+                <div class="account-assets-data">
+                    <section class="assets">
+                        <h6>Assets</h6>
+                        <p>USD</p>
+                        <p>Bitcoin (BTC)</p>
+                        <p>Ethereum (ETH)</p>
+                    </section>
+    
+                    <section class="amount">
+                        <h6>Amount</h6>
+                        <p>$100.00</p>
+                        <p>0.002 BTC ($100.00)</p>
+                        <p>0.043 ETH ($100.00)</p>
+                    </section>
+                </div>
+
+                <button type="button" data-toggle="modal" data-target="#buy-crypto" class="btn btn-dark" id="buy-btn">Buy</button>
+                <button type="button" data-toggle="modal" data-target="#sell-crypto" class="btn btn-dark" id="sell-btn">Sell</button>
+
+            </div>
+        </div>
+
+        <div class="card" id="recent-transactions-card" style="width: 30rem;">
+            <div class="card-body">
+                <h5 class="card-title">Recent Transactions</h5>
+
+                <p><strong>Bought 0.001 BTC ($50.00)</strong> - 01/15/21</p>
+                <p><strong>Sold 0.011 ETH ($25.00)</strong> - 01/01/21</p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal window to buy crypto -->
+    <div class="modal fade" id="buy-crypto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Buy Crypto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                        <label for="usd-amount-buy">USD Amount</label>
+                        <input type="text" class="form-control" id="usd-amount-buy">
+                        </div>
+                        <div class="form-group">
+                            <label for="crypto-selection">Select Cryptocurrency</label>
+                            <select class="form-control" id="crypto-selection" onchange="about_crypto()">
+                                <option value="0">-- Select Cryptocurrency</option>
+                                <option value="BTC">Bitcoin (BTC)</option>
+                                <option value="ETH">Ethereum (ETH)</option>
+                                <option value="LTC">Litecoin (LTC)</option>
+                                <option value="DOGE">Dogecoin (DOGE)</option>
+                                <option value="XLM">Stellar Lumens (XLM)</option>
+                                <option value="ADA">Cardano (ADA)</option>
+                                <option value="ATOM">Cosmos (ATOM)</option>
+                            </select>
+                        </div>
+
+                        <div class="about-crypto" id="about-crypto">
+                            <h6 id="crypto-selection-title"></h6>
+                            <p id="crypto-selection-description"></p>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" data-toggle="modal" data-target="#preview-transaction" data-dismiss="modal" class="btn btn-dark" id="preview-buy-transaction-btn">Preview Transaction</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal window to sell crypto -->
+    <div class="modal fade" id="sell-crypto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sell Crypto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                        <label for="usd-amount">USD Amount</label>
+                        <input type="text" class="form-control" id="usd-amount">
+                        </div>
+                        <div class="form-group">
+                            <label for="crypto-selection">Select Cryptocurrency</label>
+                            <select class="form-control" id="crypto-selection">
+                                <option value="0">-- Select Cryptocurrency</option>
+                                <option value="1">Bitcoin (BTC)</option>
+                                <option value="2">Ethereum (ETH)</option>
+                                <option value="3">Litecoin (LTC)</option>
+                                <option value="4">Dogecoin (DOGE)</option>
+                                <option value="5">Stellar Lumens (XLM)</option>
+                                <option value="6">Cardano (ADA)</option>
+                                <option value="7">Cosmos (ATOM)</option>
+                            </select>
+                        </div>
+
+                        <div class="about-crypto" id="about-crypto">
+                            <h6 id="crypto-selection-title"></h6>
+                            <p id="crypto-selection-description"></p>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark" id="btn">Preview Transaction</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal window for buy transaction details -->
+    <div class="modal fade" id="preview-transaction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Transaction Preview - Buy</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="transaction-preview-details">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-dark" id="btn">Complete Transaction</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="project.js"></script>
+
+</body>
+</html>
