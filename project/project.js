@@ -118,19 +118,8 @@ function buy_transaction_preview() {
             var currency_quantity = buy_usd_amount / currency_price;
 
             document.getElementById('coin-price').innerHTML = '<strong>' + currency + ' Price</strong> ' +  format_value_string('$' + currency_price.substr(0, currency_price.length-6), true);
-            document.getElementById('coin-amount').innerHTML = '<strong>' + currency + ' Amount</strong>'; 
-
-            
-            // document.getElementById('receipt-title').textContent = 'Transaction Details';
-            // document.getElementById('crypto-bought-title').textContent = 'Currency';
-            // document.getElementById('currency-price-title').textContent = 'Currency Price';
-            // document.getElementById('dollar-amount-title').textContent = 'Amount in $';
-            // document.getElementById('crypto-amount-title').textContent = 'Currency Amount';
-
-            // document.getElementById('crypto-bought').textContent = data['name'];
-            // document.getElementById('currency-price').textContent = format_value_string('$' + data['price'].substr(0, data['price'].length-6), true);;
-            // document.getElementById('dollar-amount').textContent = dollar_amount;
-            // document.getElementById('crypto-amount').textContent = currency_quantity;
+            document.getElementById('coin-amount').innerHTML = '<strong>' + currency + ' Amount</strong>' + currency_quantity;
+            document.getElementById('usd-amount').innerHTML = '<strong>USD Amount </strong> $' + buy_usd_amount;   
 
         }
         else {
