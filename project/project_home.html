@@ -171,7 +171,31 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-dark" id="btn">Complete Transaction</button>
+                    <button type="button" data-toggle="modal" data-target="#complete-transaction" data-dismiss="modal" class="btn btn-dark" id="complete-transaction-btn">Complete Transaction</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal window for transaction confirmation -->
+    <div class="modal fade" id="complete-transaction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Transaction Complete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="transaction-complete-details">
+
+                    <h6>Transaction Complete!</h6>
+                    <p>Enjoy your new crypto!</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
