@@ -92,7 +92,7 @@ function buy_transaction_preview() {
             console.log(data);
 
             var currency_price = data['price'];
-            var currency_quantity = dollar_amount / currency_price;
+            var currency_quantity = buy_usd_amount / currency_price;
 
             document.getElementById('coin-price').innerHTML = '<strong>' + currency + '</strong> ' + currency_price; 
             
