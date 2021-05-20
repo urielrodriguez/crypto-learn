@@ -1,3 +1,26 @@
+// FORMATS THE PROVIDED STRING TO ONLY CONTAIN TWO DECIMAL POINTS.
+function format_value_string(string, contains_decimal) {
+    var start;
+    if (contains_decimal) {
+        start = string.indexOf('.')-1
+    }
+    else {
+        start = string.length-1;
+    }
+    var number_count = 0;
+    for (var i = start; i > 1; i--) {
+        if (number_count === 2) {
+            string = string.substr(0, i) + ',' + string.substr(i, string.length);
+            number_count = 0;
+        }
+        else {
+            number_count += 1;
+        }
+    }
+    return string;
+}
+
+
 function about_crypto() {
     
     var option_value = document.getElementById('crypto-selection').value;
