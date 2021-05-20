@@ -121,7 +121,7 @@ function buy_transaction_preview() {
 
             document.getElementById('coin-price').innerHTML = '<strong>' + currency + ' Price</strong> ' +  format_value_string('$' + currency_price.substr(0, currency_price.length-6), true);
             document.getElementById('coin-amount').innerHTML = '<strong>' + currency + ' Amount</strong> ' + currency_quantity;
-            document.getElementById('dollar-amount').innerHTML = '<h1>Hello</h1>';   
+            document.getElementById('dollar-amount').innerHTML = '<strong>USD Amount</strong> $' + buy_usd_amount;   
 
         }
         else {
