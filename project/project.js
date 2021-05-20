@@ -94,8 +94,7 @@ function buy_transaction_preview() {
             var currency_price = data['price'];
             var currency_quantity = buy_usd_amount / currency_price;
 
-            document.getElementById('coin-price').innerHTML = '<strong>' + currency + '</strong> ' + currency_price; 
-            
+            document.getElementById('coin-price').innerHTML = '<strong>' + currency + '</strong> ' +  format_value_string('$' + currency_price.substr(0, currency_price.length-6), true);
 
             
             // document.getElementById('receipt-title').textContent = 'Transaction Details';
