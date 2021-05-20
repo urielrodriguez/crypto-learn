@@ -120,7 +120,7 @@ function buy_transaction_preview() {
             console.log(buy_usd_amount);
 
             document.getElementById('coin-price').innerHTML = '<strong>' + currency + ' Price</strong> ' +  format_value_string('$' + currency_price.substr(0, currency_price.length-6), true);
-            document.getElementById('usd-amount').innerHTML = '<strong>USD Amount </strong> $100';   
+            document.getElementById('dollar-amount').innerHTML = '<strong>USD Amount</strong> $' + buy_usd_amount;   
             document.getElementById('coin-amount').innerHTML = '<strong>' + currency + ' Amount</strong> ' + currency_quantity;
 
         }
