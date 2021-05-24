@@ -9,16 +9,118 @@
     <h1>Cryptocurrency Exchange</h1>
 
     <div class="keys-container" id="keys-container" style="width: 10%; margin-left: 6%; margin-right: 84%; margin-top: 20px;">
-        <div class="keys" id="keys">
-            <input class="form-control mr-sm-2" id="public-key" type="text" placeholder="Public Key">
+
+        <div class="unlock-account">
+            <div class="keys" id="keys">
+                <input class="form-control mr-sm-2" id="public-key" type="text" placeholder="Public Key">
+            </div>
+            <div class="keys" id="keys">
+                <input class="form-control mr-sm-2" id="private-key" type="text" placeholder="Private Key">
+            </div>
+            <button type="button" class="btn btn-dark" id="unlock-account-btn">Unlock Account</button>
         </div>
 
-        <div class="keys" id="keys">
-            <input class="form-control mr-sm-2" id="private-key" type="text" placeholder="Private Key">
+        <div class="create-keys">
+            <h6 style="margin-top: 51px;">Don't gave a public key and private key pair?</h6>
+            <button type="button" data-toggle="modal" data-target="#keys-creation" data-dismiss="modal" class="btn btn-dark" id="create-keys-btn">Create New Key Pair</button>
         </div>
 
-        <button type="button" class="btn btn-dark" id="unlock-account-btn">Unlock Account</button>
+        <div class="forgot-keys">
+            <h6 style="margin-top: 70px;">Forgot your keys?</h6>
+            <button type="button" data-toggle="modal" data-target="#keys-recovery" data-dismiss="modal" class="btn btn-dark" id="forgot-keys-btn">Recover Keys</button>
+        </div>
     </div>
+
+    <!-- Modal window for keys creation -->
+    <div class="modal fade" id="keys-creation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create New Key Pair</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter a mnemonic phrase or click on the "Create Keys" button.</p>
+                    <input class="form-control mr-sm-2" type="text" name="mnemonic-phrase" id="mnemonic-phrase" placeholder="Mnemonic Phrase">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#keys-creation-confirmation" class="btn btn-dark" id="complete-key-creation-btn">Create Keys</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal window for keys creation conformation -->
+    <div class="modal fade" id="keys-creation-confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Key Pair Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Here are your new keys. Happy investing!</p>
+                    <p id="mnemonic-phrase-keys"></p>
+                    <p id="new-public-key"></p>
+                    <p id="new-private-key"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal window for keys recovery -->
+    <div class="modal fade" id="keys-recovery" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Recover Keys</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter the mnemonic phrase associated with your keys.</p>
+                    <input class="form-control mr-sm-2" type="text" name="mnemonic-phrase" id="mnemonic-phrase-recover" placeholder="Mnemonic Phrase">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#keys-recovery-confirmation" class="btn btn-dark" id="complete-key-recovery-btn">Recover Keys</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal window for keys recovery conformation -->
+    <div class="modal fade" id="keys-recovery-confirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Recover Keys Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="recover-message">Here are your recovered keys. </p>
+                    <p id="mnemonic-phrase-keys"></p>
+                    <p id="new-public-key"></p>
+                    <p id="new-private-key"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="account-details" style="width: 80%; margin-left: 6%; margin-right: 14%; margin-top: 20px;">
 

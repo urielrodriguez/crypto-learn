@@ -14,12 +14,20 @@ input {
     margin-bottom: 10px;
 }
 
+.keys-container {
+    display: flex;
+}
+
+.unlock-account, .create-keys, .forgot-keys {
+    margin-right: 40px;
+}
+
 #add-data-point-btn, #delete-data-point-btn, #create-graph-btn {
     margin-top: 15px;
     width: 250px;
 }
 
-#unlock-account-btn {
+#unlock-account-btn, #create-keys-btn, #forgot-keys-btn {
     width: 192px;margin-top: 10px;
 }
 

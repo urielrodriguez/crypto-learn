@@ -158,3 +158,57 @@ function format_value_string(string, contains_decimal) {
     }
     return string;
 }
+
+
+// Create new key pair without a mnemonic phrase
+function get_keys() {
+    var req = new XMLHttpRequest();
+    req.open('GET', 'http://127.0.0.1:5000/keys-only', true);
+    req.addEventListener('load', function() {
+        if (req.status >= 200 && req.status < 400) {
+            var response = JSON.parse(req.responseText);
+            document.getElementById('new-public-key').innerHTML = '<strong>Public Key: </strong>' + response[0]['public_key']
+            document.getElementById('new-private-key').innerHTML = '<strong>Private Key: </strong>' + response[0]['private_key']
+        }
+        else {
+            console.log('Error in network request: ' + req.statusText);
+        }
+    });
+    req.send(null);
+};
+
+
+// Create new key pair with a mnemonic phrase
+function get_keys_mnemonic() {
+    var req = new XMLHttpRequest();
+    var payload = {mnemonic_phrase:null};
+    payload.mnemonic_phrase = document.getElementById('mnemonic-phrase').value;
+    req.open('POST', 'http://127.0.0.1:5000/keys-mnemonic', true);
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.addEventListener('load', function() {
+        if (req.status >= 200 && req.status < 400) {
+            var response = JSON.parse(req.responseText);
+            console.log(response);
+            document.getElementById('mnemonic-phrase-keys').innerHTML = '<strong>Mnemonic Phrase: </strong>' + document.getElementById('mnemonic-phrase').value;
+            document.getElementById('new-public-key').innerHTML = '<strong>Public Key: </strong>' + response[0]['public_key']
+            document.getElementById('new-private-key').innerHTML = '<strong>Private Key: </strong>' + response[0]['private_key']
+        }
+        else {
+            console.log("Error in network request: " + req.statusText);
+        }
+    });
+    req.send(JSON.stringify(payload));
+    event.preventDefault();
+}
+
+
+document.getElementById('complete-key-creation-btn').addEventListener('click', function() {
+    if (document.getElementById('mnemonic-phrase').value === '') {
+        get_keys();
+    }
+    else {
+        get_keys_mnemonic();
+    }
+});
+
+
