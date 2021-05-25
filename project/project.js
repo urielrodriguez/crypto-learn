@@ -212,3 +212,30 @@ document.getElementById('complete-key-creation-btn').addEventListener('click', f
 });
 
 
+function get_translate(text, element_id) {
+    var req = new XMLHttpRequest();
+    req.open('GET', 'http://127.0.0.1:5000/translate/Spanish/' + text, true);
+    req.addEventListener('load', function() {
+        if (req.status >= 200 && req.status < 400) {
+            var response = JSON.parse(req.responseText);
+            console.log(response);
+            var translated_text = response['output'];
+            document.getElementById(element_id).innerText = translated_text;
+        }
+        else {
+            console.log('Error in network request: ' + req.statusText);
+        }
+    });
+    req.send(null);
+};
+
+document.getElementById('translate').addEventListener('click', function() {
+    var page_title = document.getElementById('page-title').innerText;
+    get_translate(page_title, 'page-title');
+
+    var new_keys_question = document.getElementById('new-keys-question').innerText;
+    get_translate(new_keys_question, 'new-keys-question');
+
+    var create_keys_btn = document.getElementById('create-keys-btn').innerText;
+    get_translate(create_keys_btn, 'create-keys-btn');
+});
