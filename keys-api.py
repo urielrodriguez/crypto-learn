@@ -44,9 +44,6 @@ def create_keys():
 
         public_key = str(binascii.hexlify(public_key_seed))[2:26]
         private_key = str(binascii.hexlify(private_key_seed))[2:26]
-
-        print(public_key)
-        print(private_key)
         
         keys = [
             {'public_key': public_key,

@@ -239,3 +239,25 @@ document.getElementById('translate').addEventListener('click', function() {
     var create_keys_btn = document.getElementById('create-keys-btn').innerText;
     get_translate(create_keys_btn, 'create-keys-btn');
 });
+
+document.getElementById('complete-key-recovery-btn').addEventListener('click', function() {
+    var req = new XMLHttpRequest();
+    var payload = {mnemonic_phrase:null};
+    payload.mnemonic_phrase = document.getElementById('mnemonic-phrase-recover').value;
+    req.open('POST', 'http://127.0.0.1:5000/keys-mnemonic', true);
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.addEventListener('load', function() {
+        if (req.status >= 200 && req.status < 400) {
+            var response = JSON.parse(req.responseText);
+            console.log(response);
+            document.getElementById('recovered-mnemonic-phrase').innerHTML = '<strong>Mnemonic Phrase: </strong>' + document.getElementById('mnemonic-phrase-recover').value;
+            document.getElementById('recovered-public-key').innerHTML = '<strong>Public Key: </strong>' + response[0]['public_key']
+            document.getElementById('recovered-private-key').innerHTML = '<strong>Private Key: </strong>' + response[0]['private_key']
+        }
+        else {
+            console.log("Error in network request: " + req.statusText);
+        }
+    });
+    req.send(JSON.stringify(payload));
+    event.preventDefault();
+});
