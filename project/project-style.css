@@ -1,8 +1,8 @@
-h1, #add-data-point-btn, #translate {
-    margin-left: 115px;
+#add-data-point-btn, #translate {
+    margin-left: 112px;
 }
 
-.container-labels-data-points, h1 {
+.container-labels-data-points {
     margin-top: 35px;
 }
 
@@ -72,4 +72,19 @@ input {
 .about-crypto {
     text-align: center;
 }
+
+.unlock-account, .create-keys, .forgot-keys {
+    margin-top: 50px;
+}
+
+#public-key, #private-key, #account-assets-card, #recent-transactions-card {
+    background-color: black;
+    color: rgb(165, 156, 156);
+}
+
+#account-assets-card, #recent-transactions-card {
+    border-color: rgb(165, 156, 156);
+}
+
+
 
