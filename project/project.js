@@ -101,7 +101,6 @@ function about_crypto() {
 
 
 function buy_transaction_preview() {
-
     var buy_usd_amount = document.getElementById('usd-amount-buy').value;
     var currency = document.getElementById('crypto-selection').value;
 
@@ -130,11 +129,43 @@ function buy_transaction_preview() {
     });
     req.send(null);
     event.preventDefault();
+}
 
+
+function sell_transaction_preview() {
+    var sell_usd_amount = document.getElementById('usd-amount-sell').value;
+    var currency = document.getElementById('crypto-selection-sell').value;
+
+    var api_key = 'b231d31b8c9e7ba918ecbdd7929bf1ad';
+    var req = new XMLHttpRequest();
+    req.open('GET', "https://api.nomics.com/v1/currencies/ticker?key=" + api_key + "&ids=" + currency + "&interval=1d,30d&convert=EUR&per-page=100&page=1", true);
+    req.addEventListener('load', function() {
+        if (req.status >= 200 && req.status < 400) {
+            var response = JSON.parse(req.responseText);
+            var data = response[0];
+            console.log(data);
+
+            var currency_price = data['price'];
+            var currency_quantity = sell_usd_amount / currency_price;
+            console.log(currency_quantity);
+            console.log(sell_usd_amount);
+
+            document.getElementById('coin-price-sell').innerHTML = '<strong>' + currency + ' Price</strong> ' +  format_value_string('$' + currency_price.substr(0, currency_price.length-6), true);
+            document.getElementById('coin-amount-sell').innerHTML = '<strong>' + currency + ' Amount</strong> ' + currency_quantity;
+            document.getElementById('dollar-amount-sell').innerHTML = '<strong>USD Amount</strong> $' + sell_usd_amount;   
+
+        }
+        else {
+            console.log('Error in network request: ' + req.statusText);
+        }
+    });
+    req.send(null);
+    event.preventDefault();
 }
 
 
 document.getElementById('preview-buy-transaction-btn').addEventListener('click', buy_transaction_preview);
+document.getElementById('preview-sell-transaction-btn').addEventListener('click', sell_transaction_preview);
 
 
 // FORMATS THE PROVIDED STRING TO ONLY CONTAIN TWO DECIMAL POINTS.

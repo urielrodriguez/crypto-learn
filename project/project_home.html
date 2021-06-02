@@ -82,7 +82,7 @@
     <div class="modal fade" id="keys-creation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" id="content">
-                <div class="modal-header" id="content-header">
+                <div class="modal-header" id="create-keys-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create New Key Pair</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -90,9 +90,9 @@
                 </div>
                 <div class="modal-body" id="content-body">
                     <p>Enter a mnemonic phrase or click on the "Create Keys" button.</p>
-                    <input class="form-control mr-sm-2" type="text" name="mnemonic-phrase" id="mnemonic-phrase" placeholder="Mnemonic Phrase">
+                    <input class="form-control mr-sm-2" type="text" name="mnemonic-phrase" id="mnemonic-phrase"">
                 </div>
-                <div class="modal-footer" id="content-footer">
+                <div class="modal-footer" id="create-keys-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" data-toggle="modal" data-dismiss="modal" data-target="#keys-creation-confirmation" class="btn btn-dark" id="complete-key-creation-btn">Create Keys</button>
                 </div>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Enter the mnemonic phrase associated with your keys.</p>
-                    <input class="form-control mr-sm-2" type="text" name="mnemonic-phrase" id="mnemonic-phrase-recover" placeholder="Mnemonic Phrase">
+                    <input class="form-control mr-sm-2" type="text" name="mnemonic-phrase" id="mnemonic-phrase-recover">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -269,11 +269,11 @@
                     <form>
                         <div class="form-group">
                         <label for="usd-amount">USD Amount</label>
-                        <input type="text" class="form-control" id="usd-amount">
+                        <input type="text" class="form-control" id="usd-amount-sell">
                         </div>
                         <div class="form-group">
                             <label for="crypto-selection">Select Cryptocurrency</label>
-                            <select class="form-control" id="crypto-selection">
+                            <select class="form-control" id="crypto-selection-sell">
                                 <option value="0">-- Select Cryptocurrency</option>
                                 <option value="1">Bitcoin (BTC)</option>
                                 <option value="2">Ethereum (ETH)</option>
@@ -294,7 +294,32 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-dark" id="btn">Preview Transaction</button>
+                    <button type="button" data-toggle="modal" data-target="#preview-sell" data-dismiss="modal" class="btn btn-dark" id="preview-sell-transaction-btn">Preview Transaction</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal window for sell transaction details -->
+    <div class="modal fade" id="preview-sell" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Transaction Preview - Sell</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="transaction-preview-details">
+
+                    <p id="coin-price-sell"></p>
+                    <p id="dollar-amount-sell"></p>
+                    <p id="coin-amount-sell"></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" data-toggle="modal" data-target="#complete-transaction" data-dismiss="modal" class="btn btn-dark" id="complete-transaction-btn">Complete Transaction</button>
                 </div>
             </div>
         </div>
