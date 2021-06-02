@@ -103,7 +103,6 @@ function about_crypto() {
 function buy_transaction_preview() {
     var buy_usd_amount = document.getElementById('usd-amount-buy').value;
     var currency = document.getElementById('crypto-selection').value;
-
     var api_key = 'b231d31b8c9e7ba918ecbdd7929bf1ad';
     var req = new XMLHttpRequest();
     req.open('GET', "https://api.nomics.com/v1/currencies/ticker?key=" + api_key + "&ids=" + currency + "&interval=1d,30d&convert=EUR&per-page=100&page=1", true);
@@ -135,7 +134,7 @@ function buy_transaction_preview() {
 function sell_transaction_preview() {
     var sell_usd_amount = document.getElementById('usd-amount-sell').value;
     var currency = document.getElementById('crypto-selection-sell').value;
-
+    console.log(currency);
     var api_key = 'b231d31b8c9e7ba918ecbdd7929bf1ad';
     var req = new XMLHttpRequest();
     req.open('GET', "https://api.nomics.com/v1/currencies/ticker?key=" + api_key + "&ids=" + currency + "&interval=1d,30d&convert=EUR&per-page=100&page=1", true);
